@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DynamoCode.Infrastructure" Version="0.0.0-alpha.7" />
+    <PackageReference Include="DynamoCode.Domain" Version="0.0.0-alpha.12" />
+    <PackageReference Include="DynamoCode.Infrastructure" Version="0.0.0-alpha.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyApp.Domain\MyApp.Domain.csproj" />
   </ItemGroup>
 
 </Project>
