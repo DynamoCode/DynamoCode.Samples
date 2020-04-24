@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using DynamoCode.Infrastructure.Data;
-using DynamoCode.Infrastructure.Data.Entities;
 using MyApp.Domain;
 
 namespace MyApp.Infrastructure
@@ -29,7 +27,7 @@ namespace MyApp.Infrastructure
             return data;
         }
 
-        public PagedResult<Person> All(int page, int itemsPerPage)
+        public IList<Person> All(int page, int itemsPerPage)
         {
             if (page <= 0)
                 page = 1;
@@ -40,28 +38,17 @@ namespace MyApp.Infrastructure
             {
                 items = data.Skip((page - 1) * itemsPerPage).Take(itemsPerPage).ToList();
             }
-            return new PagedResult<Person> { PageOfItems = items, TotalItems = data.Count };
+            return items;
+        }
+
+        public int Count()
+        {
+            return data.Count();
         }
         public Person FindBy(int id)
         {
             return data.First(x => x.Id == id);
         }
-
-        public Task<List<Person>> AllAsync()
-        {
-            return new Task<List<Person>>(() => All().ToList());
-        }
-
-        public Task<PagedResult<Person>> AllAsync(int page, int itemsPerPage)
-        {
-            return new Task<PagedResult<Person>>(() => All(page, itemsPerPage));
-        }
-
-        public Task<Person> FindByAsync(int id)
-        {
-            return new Task<Person>(() => FindBy(id));
-        }
-
 
         public void Add(Person entity)
         {
@@ -100,5 +87,6 @@ namespace MyApp.Infrastructure
             Delete(entity);
             Add(entity);
         }
+
     }
 }
