@@ -15,11 +15,6 @@ namespace MyApp.Infrastructure
             data.Add(new Person { Id = 3, FirstName = "P3", LastName = "LN3", Age = 32 });
             data.Add(new Person { Id = 4, FirstName = "P4", LastName = "LN4", Age = 33 });
             data.Add(new Person { Id = 5, FirstName = "P5", LastName = "LN5", Age = 34 });
-            data.Add(new Person { Id = 6, FirstName = "P6", LastName = "LN6", Age = 35 });
-            data.Add(new Person { Id = 7, FirstName = "P7", LastName = "LN7", Age = 36 });
-            data.Add(new Person { Id = 8, FirstName = "P8", LastName = "LN8", Age = 37 });
-            data.Add(new Person { Id = 9, FirstName = "P9", LastName = "LN9", Age = 38 });
-            data.Add(new Person { Id = 10, FirstName = "P10", LastName = "LN10", Age = 39 });
         }
 
         public IList<Person> All()
@@ -45,6 +40,7 @@ namespace MyApp.Infrastructure
         {
             return data.Count();
         }
+
         public Person FindBy(int id)
         {
             return data.First(x => x.Id == id);
