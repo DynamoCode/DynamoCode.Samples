@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DynamoCode.Infrastructure.Data;
+using DynamoCode.Domain.Data.Interfaces;
 using MyApp.Domain;
 
 namespace MyApp.Infrastructure
